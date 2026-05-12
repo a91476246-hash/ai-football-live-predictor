@@ -46,7 +46,7 @@ class ParikProvider(LiveDataProvider):
         settings = get_settings()
         self._base_url = (base_url or settings.parik_url).rstrip("/")
         self._live_url = f"{self._base_url}/uk/all-live"
-        self._timeout = timeout or (settings.playwright_timeout_ms / 1000)
+        self._timeout = timeout if timeout is not None else (settings.playwright_timeout_ms / 1000)
         self._client: httpx.AsyncClient | None = None
 
     async def start(self) -> None:
