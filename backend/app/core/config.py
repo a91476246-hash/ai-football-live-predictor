@@ -31,6 +31,9 @@ class Settings(BaseSettings):
     headless: bool = True
     playwright_timeout_ms: int = 20_000
 
+    # Parik24 (HTTP-based scraper, no browser needed)
+    parik_url: str = "https://parik24ua.kyiv.ua"
+
     # Live monitor
     monitor_interval_seconds: int = 30
     min_minute: int = 50
